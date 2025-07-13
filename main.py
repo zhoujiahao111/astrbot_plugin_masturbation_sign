@@ -14,8 +14,8 @@ class SignPlugin(Star):
         super().__init__(context)
         self.素材文件路径 = os.path.join(os.getcwd(), r"data\plugins\astrbot_plugin_masturbation_sign")
 
-
-    @filter.command("鹿", alias={'撸', '🦌'})
+    # @filter.command("鹿", alias={'撸', '🦌'})
+    @filter.regex('[\s\S]*(手淫|打飞机|撸|鹿|🦌)[\s\S]*')
     async def 签到(self, event: AstrMessageEvent):
         qq号 = event.get_sender_id()
         用户昵称 = event.get_sender_name()
@@ -26,7 +26,9 @@ class SignPlugin(Star):
 
         if not 是否成功:
             if 结果 == "已签到":
-                yield event.plain_result("今日已🦌, 请勿重复喵")
+                # 不提示, 防止因正则多次重复触发, 回复的提示信息造成骚扰
+                # yield event.plain_result("今日已🦌, 请勿重复喵")
+                return
             else:
                 yield event.plain_result("未知错误:" + 结果)
 
