@@ -1,0 +1,6 @@
+name: astrbot_plugin_sign
+desc: 鹿签到系统, 输出日历图片
+help: 输入鹿
+version: v1.0.5
+author: FengYing
+repo: https://github.com/FengYing1314/astrbot_plugin_sign
